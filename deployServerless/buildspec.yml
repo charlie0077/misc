@@ -12,10 +12,11 @@ phases:
       - apt-get install -y yarn
   pre_build:
     commands:
-      - yarn install --production
+      - yarn install
+      - yarn global add serverless
   build:
     commands:
       - yarn run build
   post_build:
     commands:
-      - aws s3 sync --delete  build/ "s3://${BUCKET_NAME}"
+      - serverless deploy -s prod
