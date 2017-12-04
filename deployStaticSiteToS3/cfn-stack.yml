@@ -195,7 +195,7 @@ Resources:
                 Version: '1'
                 Provider: GitHub
               OutputArtifacts:
-                - Name: StaticSiteSource
+                - Name: AppSource
               Configuration:
                 Owner: !Ref GitHubOwner
                 Repo: !Ref GitHubRepo
@@ -206,14 +206,14 @@ Resources:
           Actions:
             - Name: CodeBuild
               InputArtifacts:
-                - Name: StaticSiteSource
+                - Name: AppSource
               ActionTypeId:
                 Category: Build
                 Owner: AWS
                 Version: '1'
                 Provider: CodeBuild
               OutputArtifacts:
-                - Name: StaticSite
+                - Name: App
               Configuration:
                 ProjectName: !Ref CodeBuild
               RunOrder: 1
