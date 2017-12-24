@@ -260,7 +260,7 @@ Resources:
         Aliases:
           - !If
             - CustomDomain
-            - !Sub 'www.${DomainName}'
+            - !Sub '${DomainName}'
             - Ref: AWS::NoValue
         CacheBehaviors: []
         DefaultCacheBehavior:
